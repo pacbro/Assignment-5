@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Color Picker</title>
+    <style>
+      #body{
+        background-color: lightgray;
+      }
+      #selectors{
+        background-color: whitesmoke;
+
+      }
+      #changer{
+        background-color: whitesmoke;
+        width: 150px;
+        height: 50px;
+        display: block;
+        margin: auto;
+      }
+      
+    </style>
+</head>
+
+<body>
+
+    <div id="body">
+      
+<h5>Please input a number between 0 and 255</h5><br>
+      
+        <div id="selectors">
+
+            <form>
+                <label for="redBox">Red: </label>
+                <input type="text" id="redBox" value="0"><br><br>
+
+                <label for="greenBox">Green:</label> 
+                <input type="text" id="greenBox" value="0"><br><br>
+
+                <label for="blueBox">Blue:</label>
+                <input type="text" id="blueBox" value="0"><br><br>
+
+                <button id="button">Click to see the color</button>
+                <input type="reset" value="Clear all">
+            </form>
+
+        </div>
+
+        <div id="changer">
+            <p id="changetext"></p>
+        </div> 
+
+    </div>
+
+    <script>
+        let redVal = getElementById("redBox").value;
+        let greenVal = getElementById("greenBox").value;
+        let blueVal = getElementById("blueBox").value;
+        let button = getElementById("button");
+        let colChange = getElementById("changer");
+
+        button.addEventListener("click", clickHandler, false);
+
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+
+
+        function clickHandler() {
+            //changes colors based on the values in the boxes.
+
+            if (redVal isNaN || redVal < 0 || redVal > 255) {
+                document.getElementById("changetext").innerHTML = "The value for red is invalid.")
+        }
+        if
+        else(greenVal isNaN || greenVal < 0 || greenVal > 255) {
+            document.getElementById("changetext").innerHTML = "The value for green is invalid.")
+        }
+        if
+        else(blueVal isNaN || blueVal < 0 || blueVal > 255) {
+            document.getElementById("changetext").innerHTML = "The value for blue is invalid.")
+        }
+        else {
+            colChange.style.backgroundColor = "rgb(" + redVal + ", " + greenVal + "," + blueVal + ")";
+            
+            document.getElementById("changetext").innerHTML = "Hex color : " + rgbToHex(redVal, greenVal, blueVal);
+        }
+        
+        
+    </script>
+
+</body>
+
+</html>
